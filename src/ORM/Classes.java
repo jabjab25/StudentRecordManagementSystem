@@ -31,7 +31,8 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Classes.findAll", query = "SELECT c FROM Classes c"),
     @NamedQuery(name = "Classes.findByClassId", query = "SELECT c FROM Classes c WHERE c.classId = :classId"),
-    @NamedQuery(name = "Classes.findByClassName", query = "SELECT c FROM Classes c WHERE c.className = :className")})
+    @NamedQuery(name = "Classes.findByClassName", query = "SELECT c FROM Classes c WHERE c.className = :className"),
+    @NamedQuery(name = "Classes.findByKeyStage", query = "SELECT c FROM Classes c WHERE c.keyStage = :keyStage")})
 public class Classes implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -40,6 +41,8 @@ public class Classes implements Serializable {
     private String classId;
     @Column(name = "CLASS_NAME", length = 4)
     private String className;
+    @Column(name = "KEY_STAGE", length = 4)
+    private String keyStage;
     @OneToMany(mappedBy = "classId", fetch = FetchType.LAZY)
     private List<Students> studentsList;
     @OneToMany(mappedBy = "classId", fetch = FetchType.LAZY)
@@ -77,6 +80,14 @@ public class Classes implements Serializable {
 
     public void setClassName(String className) {
         this.className = className;
+    }
+
+    public String getKeyStage() {
+        return keyStage;
+    }
+
+    public void setKeyStage(String keyStage) {
+        this.keyStage = keyStage;
     }
 
     @XmlTransient
