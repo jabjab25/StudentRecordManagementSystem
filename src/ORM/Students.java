@@ -75,8 +75,8 @@ public class Students implements Serializable {
     private List<Classes> classesList;
 
     public Students() {
-        currentId++;
-        this.studentId = currentId.toString();
+        //currentId++;
+        //this.studentId = currentId.toString();
     }
 
     public Students(String fn, String ln, String email, Date dob, String al1, String pCode, String tGrade) {
@@ -99,9 +99,10 @@ public class Students implements Serializable {
         return studentId;
     }
 
-    //public void setStudentId(String studentId) {
-        //this.studentId = studentId;
-    //}
+    public void setStudentId() {
+       currentId++;
+       this.studentId = currentId.toString();
+    }
 
     public String getFirstName() {
         return firstName;
