@@ -79,17 +79,29 @@ public class Students implements Serializable {
         this.studentId = currentId.toString();
     }
 
-    public Students(String studentId) {
-        this.studentId = studentId;
+    public Students(String fn, String ln, String email, Date dob, String al1, String pCode, String tGrade) {
+        currentId++;
+        this.studentId = currentId.toString();
+        this.firstName = fn;
+        this.lastName = ln;
+        this.emailAddress = email;
+        this.dateOfBirth = dob;
+        this.addressLine1 = al1;
+        if(checkPostcode(pCode)==true)
+        {
+            this.postCode = pCode;
+        }
+        this.targetGrade = tGrade;
+        
     }
 
     public String getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
-    }
+    //public void setStudentId(String studentId) {
+        //this.studentId = studentId;
+    //}
 
     public String getFirstName() {
         return firstName;
@@ -136,7 +148,23 @@ public class Students implements Serializable {
     }
 
     public void setPostCode(String postCode) {
-        this.postCode = postCode;
+        if(checkPostcode(postCode)== true)
+        {
+            this.postCode = postCode;
+        }
+        else
+        {
+            System.out.println("this is not a valid postcode");
+        }
+    }
+    
+    public boolean checkPostcode(String postCode)
+    {
+        if (postCode.length()<=8)
+        {
+            return true;
+        }
+        return false;
     }
 
     public String getTargetGrade() {
