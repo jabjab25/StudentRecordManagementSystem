@@ -43,6 +43,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Students.findByTargetGrade", query = "SELECT s FROM Students s WHERE s.targetGrade = :targetGrade")})
 public class Students implements Serializable {
     private static final long serialVersionUID = 1L;
+    private static Integer currentId = 1000;
     @Id
     @Basic(optional = false)
     @Column(name = "STUDENT_ID", nullable = false, length = 8)
@@ -74,6 +75,8 @@ public class Students implements Serializable {
     private List<Classes> classesList;
 
     public Students() {
+        currentId++;
+        this.studentId = currentId.toString();
     }
 
     public Students(String studentId) {

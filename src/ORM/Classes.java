@@ -35,6 +35,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Classes.findByKeyStage", query = "SELECT c FROM Classes c WHERE c.keyStage = :keyStage")})
 public class Classes implements Serializable {
     private static final long serialVersionUID = 1L;
+    private static Integer currentId = 1;
     @Id
     @Basic(optional = false)
     @Column(name = "CLASS_ID", nullable = false, length = 8)
@@ -60,6 +61,8 @@ public class Classes implements Serializable {
     private Markedworks markedWorkId;
 
     public Classes() {
+        currentId++;
+        this.classId = currentId.toString();
     }
 
     public Classes(String classId) {

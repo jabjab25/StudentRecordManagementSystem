@@ -38,6 +38,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Teachers.findByEmailAddress", query = "SELECT t FROM Teachers t WHERE t.emailAddress = :emailAddress")})
 public class Teachers implements Serializable {
     private static final long serialVersionUID = 1L;
+    private static Integer currentId = 1000;
     @Id
     @Basic(optional = false)
     @Column(name = "TEACHER_ID", nullable = false, length = 8)
@@ -62,6 +63,8 @@ public class Teachers implements Serializable {
     private List<Classes> classesList;
 
     public Teachers() {
+        currentId++;
+        this.teacherId = currentId.toString();
     }
 
     public Teachers(String teacherId) {

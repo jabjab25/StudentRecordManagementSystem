@@ -43,6 +43,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Markedworks.findByTask10", query = "SELECT m FROM Markedworks m WHERE m.task10 = :task10")})
 public class Markedworks implements Serializable {
     private static final long serialVersionUID = 1L;
+    private static Integer currentId = 1;
     @Id
     @Basic(optional = false)
     @Column(name = "MARKED_WORK_ID", nullable = false, length = 8)
@@ -84,6 +85,8 @@ public class Markedworks implements Serializable {
     private List<Classes> classesList;
 
     public Markedworks() {
+        currentId++;
+        this.markedWorkId = currentId.toString();
     }
 
     public Markedworks(String markedWorkId) {
