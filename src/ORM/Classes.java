@@ -77,8 +77,9 @@ public class Classes implements Serializable {
     }
 
     public void setClassId() {
-        currentId++;
+      
         this.classId = currentId.toString();
+        currentId++;
         //this.classId = classId;
     }
 
