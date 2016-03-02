@@ -100,8 +100,9 @@ public class Students implements Serializable {
     }
 
     public void setStudentId() {
+       
+        this.studentId = currentId.toString();
        currentId++;
-       this.studentId = currentId.toString();
     }
 
     public String getFirstName() {
