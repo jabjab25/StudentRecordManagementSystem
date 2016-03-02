@@ -63,12 +63,18 @@ public class Teachers implements Serializable {
     private List<Classes> classesList;
 
     public Teachers() {
-        currentId++;
-        this.teacherId = currentId.toString();
+        //currentId++;
+        //this.teacherId = currentId.toString();
     }
 
-    public Teachers(String teacherId) {
-        this.teacherId = teacherId;
+    public Teachers(String fName,String lName,String email) {
+        
+        this.teacherId = currentId.toString();
+        currentId++;
+        this.firstName = fName;
+        this.lastName = lName;
+        this.emailAddress = email;
+    
     }
 
     public String getTeacherId() {
@@ -76,7 +82,8 @@ public class Teachers implements Serializable {
     }
 
     public void setTeacherId(String teacherId) {
-        this.teacherId = teacherId;
+        this.teacherId = currentId.toString();
+        currentId++;
     }
 
     public String getFirstName() {
