@@ -80,8 +80,8 @@ public class Students implements Serializable {
     }
 
     public Students(String fn, String ln, String email, Date dob, String al1, String pCode, String tGrade) {
-        currentId++;
         this.studentId = currentId.toString();
+        currentId++;
         this.firstName = fn;
         this.lastName = ln;
         this.emailAddress = email;
