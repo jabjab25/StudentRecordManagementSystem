@@ -61,20 +61,25 @@ public class Classes implements Serializable {
     private Markedworks markedWorkId;
 
     public Classes() {
-        currentId++;
-        this.classId = currentId.toString();
+        //currentId++;
+        //this.classId = currentId.toString();
     }
 
-    public Classes(String classId) {
-        this.classId = classId;
+    public Classes(String kStage,String cName) {
+        this.classId = currentId.toString();
+        currentId++;
+        this.className = cName;
+        this.keyStage = kStage;
     }
 
     public String getClassId() {
         return classId;
     }
 
-    public void setClassId(String classId) {
-        this.classId = classId;
+    public void setClassId() {
+        currentId++;
+        this.classId = currentId.toString();
+        //this.classId = classId;
     }
 
     public String getClassName() {
@@ -90,9 +95,32 @@ public class Classes implements Serializable {
     }
 
     public void setKeyStage(String keyStage) {
+        
+        if(isKeyStage(keyStage)==true)
+        {
         this.keyStage = keyStage;
+        }
+        else{
+            System.out.println("This is not a valid key stage");
+        }
+        }
+    
+    private boolean isKeyStage(String keyStage){
+    if(keyStage.contains("ks3")){
+            return true;
+        }
+        else if(keyStage.contains("ks4")){
+            return true;
+        }
+        else if(keyStage.contains("ks5")){
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
-
+    
     @XmlTransient
     public List<Students> getStudentsList() {
         return studentsList;
