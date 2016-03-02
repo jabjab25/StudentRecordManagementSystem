@@ -69,8 +69,11 @@ public class Classes implements Serializable {
         this.classId = currentId.toString();
         currentId++;
         this.className = cName;
-        this.keyStage = kStage;
-    }
+        if(isKeyStage(kStage)==true)
+        {
+           this.keyStage = kStage; 
+        }
+        }
 
     public String getClassId() {
         return classId;
@@ -99,7 +102,7 @@ public class Classes implements Serializable {
         
         if(isKeyStage(keyStage)==true)
         {
-        this.keyStage = keyStage;
+            this.keyStage = keyStage;
         }
         else{
             System.out.println("This is not a valid key stage");
