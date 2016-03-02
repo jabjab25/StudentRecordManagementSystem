@@ -85,12 +85,14 @@ public class Markedworks implements Serializable {
     private List<Classes> classesList;
 
     public Markedworks() {
-        currentId++;
-        this.markedWorkId = currentId.toString();
+        //currentId++;
+        //this.markedWorkId = currentId.toString();
     }
 
     public Markedworks(String markedWorkId) {
         this.markedWorkId = markedWorkId;
+        //this.markedWorkId = currentId.toString();
+        //currentId++;
     }
 
     public String getMarkedWorkId() {
@@ -98,7 +100,8 @@ public class Markedworks implements Serializable {
     }
 
     public void setMarkedWorkId(String markedWorkId) {
-        this.markedWorkId = markedWorkId;
+        this.markedWorkId = currentId.toString();
+        currentId++;
     }
 
     public String getTask1() {
