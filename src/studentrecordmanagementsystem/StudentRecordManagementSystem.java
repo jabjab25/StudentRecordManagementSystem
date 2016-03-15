@@ -5,6 +5,8 @@
  */
 package studentrecordmanagementsystem;
 
+import javax.persistence.*;
+
 /**
  *
  * @author jermaine
@@ -15,7 +17,9 @@ public class StudentRecordManagementSystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        // EntityManagerFactory emf = Persistence.createEntityManagerFactory("StudentRecordManagementSystemPU");
+//EntityManager em = emf.createEntityManager();
         // TODO code application logic here
     }
-    
+
 }
