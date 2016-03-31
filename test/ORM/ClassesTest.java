@@ -119,6 +119,18 @@ public class ClassesTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+    
+    @Test
+    public void testGetKeyStage3() {
+        System.out.println("getKeyStage");
+        Classes instance = new Classes();
+        String expResult = "ks5";
+        instance.setKeyStage("ks5");
+        String result = instance.getKeyStage();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
 
     /**
      * Test of setKeyStage method, of class Classes.
