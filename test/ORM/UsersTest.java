@@ -44,24 +44,24 @@ public class UsersTest {
     public void testGetTeacherId() {
         System.out.println("getTeacherId");
         Users instance = new Users();
-        String expResult = "";
+        String expResult = "1000";
         String result = instance.getTeacherId();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
      * Test of setTeacherId method, of class Users.
      */
-    @Test
-    public void testSetTeacherId() {
-        System.out.println("setTeacherId");
-        Users instance = new Users();
-        instance.setTeacherId();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testSetTeacherId() {
+//        System.out.println("setTeacherId");
+//        Users instance = new Users();
+//        instance.setTeacherId();
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of getUsername method, of class Users.
@@ -70,24 +70,27 @@ public class UsersTest {
     public void testGetUsername() {
         System.out.println("getUsername");
         Users instance = new Users();
-        String expResult = "";
+        Teachers tech = new Teachers();
+        tech.setFirstName("Jermaine");
+        tech.setLastName("Bacon");
+        String expResult = "JerBa";
         String result = instance.getUsername();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of setUsername method, of class Users.
-     */
-    @Test
-    public void testSetUsername() {
-        System.out.println("setUsername");
-        Users instance = new Users();
-        instance.setUsername();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    /**
+//     * Test of setUsername method, of class Users.
+//     */
+//    @Test
+//    public void testSetUsername() {
+//        System.out.println("setUsername");
+//        Users instance = new Users();
+//        instance.setUsername();
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of getPassword method, of class Users.
@@ -96,25 +99,26 @@ public class UsersTest {
     public void testGetPassword() {
         System.out.println("getPassword");
         Users instance = new Users();
-        String expResult = "";
+        String expResult = "test";
+        instance.setPassword("test");
         String result = instance.getPassword();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
      * Test of setPassword method, of class Users.
      */
-    @Test
-    public void testSetPassword() {
-        System.out.println("setPassword");
-        String password = "";
-        Users instance = new Users();
-        instance.setPassword(password);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testSetPassword() {
+//        System.out.println("setPassword");
+//        String password = "test";
+//        Users instance = new Users();
+//        instance.setPassword("test");
+//        // TODO review the generated test code and remove the default call to fail.
+//        //fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of getTeachers method, of class Users.
@@ -127,7 +131,7 @@ public class UsersTest {
         Teachers result = instance.getTeachers();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -140,37 +144,37 @@ public class UsersTest {
         Users instance = new Users();
         instance.setTeachers(teachers);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
      * Test of hashCode method, of class Users.
      */
-    @Test
-    public void testHashCode() {
-        System.out.println("hashCode");
-        Users instance = new Users();
-        int expResult = 0;
-        int result = instance.hashCode();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testHashCode() {
+//        System.out.println("hashCode");
+//        Users instance = new Users();
+//        int expResult = 0;
+//        int result = instance.hashCode();
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of equals method, of class Users.
      */
-    @Test
-    public void testEquals() {
-        System.out.println("equals");
-        Object object = null;
-        Users instance = new Users();
-        boolean expResult = false;
-        boolean result = instance.equals(object);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testEquals() {
+//        System.out.println("equals");
+//        Object object = null;
+//        Users instance = new Users();
+//        boolean expResult = false;
+//        boolean result = instance.equals(object);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of toString method, of class Users.
@@ -183,7 +187,7 @@ public class UsersTest {
         String result = instance.toString();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }
