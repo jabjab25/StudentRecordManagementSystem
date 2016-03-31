@@ -45,25 +45,26 @@ public class MarkedworksTest {
     public void testGetMarkedWorkId() {
         System.out.println("getMarkedWorkId");
         Markedworks instance = new Markedworks();
-        String expResult = "";
+        String expResult = "1";
+        instance.setMarkedWorkId();
         String result = instance.getMarkedWorkId();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of setMarkedWorkId method, of class Markedworks.
-     */
-    @Test
-    public void testSetMarkedWorkId() {
-        System.out.println("setMarkedWorkId");
-        String markedWorkId = "";
-        Markedworks instance = new Markedworks();
-        instance.setMarkedWorkId(markedWorkId);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    /**
+//     * Test of setMarkedWorkId method, of class Markedworks.
+//     */
+//    @Test
+//    public void testSetMarkedWorkId() {
+//        System.out.println("setMarkedWorkId");
+//        String markedWorkId = "";
+//        Markedworks instance = new Markedworks();
+//        instance.setMarkedWorkId();
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of getTask1 method, of class Markedworks.
@@ -72,25 +73,26 @@ public class MarkedworksTest {
     public void testGetTask1() {
         System.out.println("getTask1");
         Markedworks instance = new Markedworks();
-        String expResult = "";
+        String expResult = "4a";
+        instance.setTask1("4a");
         String result = instance.getTask1();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
      * Test of setTask1 method, of class Markedworks.
      */
-    @Test
-    public void testSetTask1() {
-        System.out.println("setTask1");
-        String task1 = "";
-        Markedworks instance = new Markedworks();
-        instance.setTask1(task1);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testSetTask1() {
+//        System.out.println("setTask1");
+//        String task1 = "";
+//        Markedworks instance = new Markedworks();
+//        instance.setTask1(task1);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of getTask2 method, of class Markedworks.
@@ -99,7 +101,8 @@ public class MarkedworksTest {
     public void testGetTask2() {
         System.out.println("getTask2");
         Markedworks instance = new Markedworks();
-        String expResult = "";
+        String expResult = "B";
+        instance.setTask2("B");
         String result = instance.getTask2();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -109,15 +112,15 @@ public class MarkedworksTest {
     /**
      * Test of setTask2 method, of class Markedworks.
      */
-    @Test
-    public void testSetTask2() {
-        System.out.println("setTask2");
-        String task2 = "";
-        Markedworks instance = new Markedworks();
-        instance.setTask2(task2);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testSetTask2() {
+//        System.out.println("setTask2");
+//        String task2 = "";
+//        Markedworks instance = new Markedworks();
+//        instance.setTask2(task2);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of getTask3 method, of class Markedworks.
@@ -126,25 +129,26 @@ public class MarkedworksTest {
     public void testGetTask3() {
         System.out.println("getTask3");
         Markedworks instance = new Markedworks();
-        String expResult = "";
+        String expResult = "73";
+        instance.setTask3("73");
         String result = instance.getTask3();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
      * Test of setTask3 method, of class Markedworks.
      */
-    @Test
-    public void testSetTask3() {
-        System.out.println("setTask3");
-        String task3 = "";
-        Markedworks instance = new Markedworks();
-        instance.setTask3(task3);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testSetTask3() {
+//        System.out.println("setTask3");
+//        String task3 = "";
+//        Markedworks instance = new Markedworks();
+//        instance.setTask3(task3);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of getTask4 method, of class Markedworks.

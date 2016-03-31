@@ -99,7 +99,7 @@ public class Markedworks implements Serializable {
         return markedWorkId;
     }
 
-    public void setMarkedWorkId(String markedWorkId) {
+    public void setMarkedWorkId() {
         this.markedWorkId = currentId.toString();
         currentId++;
     }
