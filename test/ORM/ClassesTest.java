@@ -45,24 +45,25 @@ public class ClassesTest {
     public void testGetClassId() {
         System.out.println("getClassId");
         Classes instance = new Classes();
-        String expResult = "";
+        String expResult = "1";
+        instance.setClassId();
         String result = instance.getClassId();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
      * Test of setClassId method, of class Classes.
      */
-    @Test
-    public void testSetClassId() {
-        System.out.println("setClassId");
-        Classes instance = new Classes();
-        instance.setClassId();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testSetClassId() {
+//        System.out.println("setClassId");
+//        Classes instance = new Classes();
+//        instance.setClassId();
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of getClassName method, of class Classes.
@@ -71,25 +72,26 @@ public class ClassesTest {
     public void testGetClassName() {
         System.out.println("getClassName");
         Classes instance = new Classes();
-        String expResult = "";
+        String expResult = "7L";
+        instance.setClassName("7L");
         String result = instance.getClassName();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
      * Test of setClassName method, of class Classes.
      */
-    @Test
-    public void testSetClassName() {
-        System.out.println("setClassName");
-        String className = "";
-        Classes instance = new Classes();
-        instance.setClassName(className);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testSetClassName() {
+//        System.out.println("setClassName");
+//        String className = "";
+//        Classes instance = new Classes();
+//        instance.setClassName(className);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of getKeyStage method, of class Classes.
@@ -98,25 +100,38 @@ public class ClassesTest {
     public void testGetKeyStage() {
         System.out.println("getKeyStage");
         Classes instance = new Classes();
-        String expResult = "";
+        String expResult = "KS3";
+        instance.setKeyStage("KS3");
         String result = instance.getKeyStage();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
+    }
+    
+    @Test
+    public void testGetKeyStage2() {
+        System.out.println("getKeyStage");
+        Classes instance = new Classes();
+        String expResult = null;
+        instance.setKeyStage("KS7");
+        String result = instance.getKeyStage();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
     }
 
     /**
      * Test of setKeyStage method, of class Classes.
      */
-    @Test
-    public void testSetKeyStage() {
-        System.out.println("setKeyStage");
-        String keyStage = "";
-        Classes instance = new Classes();
-        instance.setKeyStage(keyStage);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testSetKeyStage() {
+//        System.out.println("setKeyStage");
+//        String keyStage = "";
+//        Classes instance = new Classes();
+//        instance.setKeyStage(keyStage);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of getStudentsList method, of class Classes.
@@ -135,42 +150,42 @@ public class ClassesTest {
     /**
      * Test of setStudentsList method, of class Classes.
      */
-    @Test
-    public void testSetStudentsList() {
-        System.out.println("setStudentsList");
-        List<Students> studentsList = null;
-        Classes instance = new Classes();
-        instance.setStudentsList(studentsList);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testSetStudentsList() {
+//        System.out.println("setStudentsList");
+//        List<Students> studentsList = null;
+//        Classes instance = new Classes();
+//        instance.setStudentsList(studentsList);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of getMarkedworksList method, of class Classes.
      */
-    @Test
-    public void testGetMarkedworksList() {
-        System.out.println("getMarkedworksList");
-        Classes instance = new Classes();
-        List<Markedworks> expResult = null;
-        List<Markedworks> result = instance.getMarkedworksList();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testGetMarkedworksList() {
+//        System.out.println("getMarkedworksList");
+//        Classes instance = new Classes();
+//        List<Markedworks> expResult = null;
+//        List<Markedworks> result = instance.getMarkedworksList();
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of setMarkedworksList method, of class Classes.
      */
-    @Test
-    public void testSetMarkedworksList() {
-        System.out.println("setMarkedworksList");
-        List<Markedworks> markedworksList = null;
-        Classes instance = new Classes();
-        instance.setMarkedworksList(markedworksList);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testSetMarkedworksList() {
+//        System.out.println("setMarkedworksList");
+//        List<Markedworks> markedworksList = null;
+//        Classes instance = new Classes();
+//        instance.setMarkedworksList(markedworksList);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of getTeachersList method, of class Classes.
@@ -189,15 +204,15 @@ public class ClassesTest {
     /**
      * Test of setTeachersList method, of class Classes.
      */
-    @Test
-    public void testSetTeachersList() {
-        System.out.println("setTeachersList");
-        List<Teachers> teachersList = null;
-        Classes instance = new Classes();
-        instance.setTeachersList(teachersList);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testSetTeachersList() {
+//        System.out.println("setTeachersList");
+//        List<Teachers> teachersList = null;
+//        Classes instance = new Classes();
+//        instance.setTeachersList(teachersList);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of getTeacherId method, of class Classes.
@@ -216,42 +231,42 @@ public class ClassesTest {
     /**
      * Test of setTeacherId method, of class Classes.
      */
-    @Test
-    public void testSetTeacherId() {
-        System.out.println("setTeacherId");
-        Teachers teacherId = null;
-        Classes instance = new Classes();
-        instance.setTeacherId(teacherId);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testSetTeacherId() {
+//        System.out.println("setTeacherId");
+//        Teachers teacherId = null;
+//        Classes instance = new Classes();
+//        instance.setTeacherId(teacherId);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of getStudentId method, of class Classes.
      */
-    @Test
-    public void testGetStudentId() {
-        System.out.println("getStudentId");
-        Classes instance = new Classes();
-        Students expResult = null;
-        Students result = instance.getStudentId();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setStudentId method, of class Classes.
-     */
-    @Test
-    public void testSetStudentId() {
-        System.out.println("setStudentId");
-        Students studentId = null;
-        Classes instance = new Classes();
-        instance.setStudentId(studentId);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testGetStudentId() {
+//        System.out.println("getStudentId");
+//        Classes instance = new Classes();
+//        Students expResult = null;
+//        Students result = instance.getStudentId();
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+//
+//    /**
+//     * Test of setStudentId method, of class Classes.
+//     */
+//    @Test
+//    public void testSetStudentId() {
+//        System.out.println("setStudentId");
+//        Students studentId = null;
+//        Classes instance = new Classes();
+//        instance.setStudentId(studentId);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of getMarkedWorkId method, of class Classes.
@@ -270,44 +285,44 @@ public class ClassesTest {
     /**
      * Test of setMarkedWorkId method, of class Classes.
      */
-    @Test
-    public void testSetMarkedWorkId() {
-        System.out.println("setMarkedWorkId");
-        Markedworks markedWorkId = null;
-        Classes instance = new Classes();
-        instance.setMarkedWorkId(markedWorkId);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testSetMarkedWorkId() {
+//        System.out.println("setMarkedWorkId");
+//        Markedworks markedWorkId = null;
+//        Classes instance = new Classes();
+//        instance.setMarkedWorkId(markedWorkId);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of hashCode method, of class Classes.
      */
-    @Test
-    public void testHashCode() {
-        System.out.println("hashCode");
-        Classes instance = new Classes();
-        int expResult = 0;
-        int result = instance.hashCode();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testHashCode() {
+//        System.out.println("hashCode");
+//        Classes instance = new Classes();
+//        int expResult = 0;
+//        int result = instance.hashCode();
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of equals method, of class Classes.
      */
-    @Test
-    public void testEquals() {
-        System.out.println("equals");
-        Object object = null;
-        Classes instance = new Classes();
-        boolean expResult = false;
-        boolean result = instance.equals(object);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testEquals() {
+//        System.out.println("equals");
+//        Object object = null;
+//        Classes instance = new Classes();
+//        boolean expResult = false;
+//        boolean result = instance.equals(object);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of toString method, of class Classes.
