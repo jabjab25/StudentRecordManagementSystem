@@ -81,7 +81,7 @@ public class Teachers implements Serializable {
         return teacherId;
     }
 
-    public void setTeacherId(String teacherId) {
+    public void setTeacherId() {
         this.teacherId = currentId.toString();
         currentId++;
     }

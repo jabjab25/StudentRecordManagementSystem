@@ -60,7 +60,7 @@ public class TeachersTest {
         System.out.println("setTeacherId");
         String teacherId = "";
         Teachers instance = new Teachers();
-        instance.setTeacherId(teacherId);
+        instance.setTeacherId();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
