@@ -110,13 +110,13 @@ public class Classes implements Serializable {
         }
     
     private boolean isKeyStage(String keyStage){
-    if(keyStage.contains("ks3")){
+    if(keyStage.toLowerCase().contains("ks3")){
             return true;
         }
-        else if(keyStage.contains("ks4")){
+        else if(keyStage.toLowerCase().contains("ks4")){
             return true;
         }
-        else if(keyStage.contains("ks5")){
+        else if(keyStage.toLowerCase().contains("ks5")){
             return true;
         }
         else
