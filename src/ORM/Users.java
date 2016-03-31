@@ -52,13 +52,13 @@ public class Users implements Serializable {
         //this.teacherId = teachers.getTeacherId();
     }
 
-    public Users(String teacherId) {
-        this.teacherId = teacherId;
-    }
+//    public Users(String teacherId) {
+//        this.teacherId = teacherId;
+//    }
 
-    public Users(String teacherId, String username, String password) {
-        this.teacherId = teacherId;
-        this.username = username;
+    public Users(String password) {
+        this.teacherId = teachers.getTeacherId();
+        //this.username = username;
         this.password = password;
     }
 
@@ -66,16 +66,21 @@ public class Users implements Serializable {
         return teacherId;
     }
 
-    public void setTeacherId(String teacherId) {
-        this.teacherId = teacherId;
+    public void setTeacherId() {
+        this.teacherId = teachers.getTeacherId();
     }
 
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername() {
+        //this.username = username;
+        String fName = teachers.getFirstName().substring(0, 3);
+        String lName = teachers.getLastName().substring(0, 2);
+        int num = (int) (Math.random()*50+1);
+        String uName = fName+lName+num;
+        this.username = uName;
     }
 
     public String getPassword() {

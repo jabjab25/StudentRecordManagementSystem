@@ -89,11 +89,11 @@ public class Markedworks implements Serializable {
         //this.markedWorkId = currentId.toString();
     }
 
-    public Markedworks(String markedWorkId) {
-        this.markedWorkId = markedWorkId;
+    //public Markedworks(String markedWorkId) {
+        //this.markedWorkId = markedWorkId;
         //this.markedWorkId = currentId.toString();
         //currentId++;
-    }
+    //}
 
     public String getMarkedWorkId() {
         return markedWorkId;
