@@ -196,6 +196,16 @@ public class Students implements Serializable {
         }
         return s; 
     }
+    
+    private boolean isGrade(String g)
+    {
+        
+        if(getKeyStage().equals("ks3"))
+        {
+            return kg3.isGrade(g);
+        }
+        return false;
+    }
 
     public String getTargetGrade() {
         return targetGrade;
