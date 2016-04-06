@@ -5,7 +5,7 @@
  */
 package ORM;
 
-import Grades.Ks3grades;
+import Grades.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -79,6 +79,8 @@ public class Students implements Serializable {
     private Classes c;
     
     private Ks3grades kg3 = new Ks3grades();
+    private Ks4grades kg4 = new Ks4grades();
+    private Ks5grades kg5 = new Ks5grades();
 
     public Students() {
         //currentId++;
@@ -203,6 +205,14 @@ public class Students implements Serializable {
         if(getKeyStage().equals("ks3"))
         {
             return kg3.isGrade(g);
+        }
+        else if (getKeyStage().equals("ks4"))
+        {
+            return kg4.isGrade(g);
+        }
+        else if(getKeyStage().equals("ks5"))
+        {
+            return kg5.isGrade(g);
         }
         return false;
     }
