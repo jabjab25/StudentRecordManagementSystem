@@ -102,7 +102,7 @@ public class Classes implements Serializable {
         
         if(isKeyStage(keyStage)==true)
         {
-            this.keyStage = keyStage;
+            this.keyStage = keyStage.toLowerCase();
         }
         else{
             System.out.println("This is not a valid key stage");

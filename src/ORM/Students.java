@@ -5,6 +5,7 @@
  */
 package ORM;
 
+import Grades.Ks3grades;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -68,11 +69,16 @@ public class Students implements Serializable {
     private Markedworks markedWorkId;
     @JoinColumn(name = "CLASS_ID", referencedColumnName = "CLASS_ID")
     @ManyToOne(fetch = FetchType.LAZY)
-    private Classes classId;
+    private String classId;
+    //private Classes classId;
     @OneToMany(mappedBy = "studentId", fetch = FetchType.LAZY)
     private List<Markedworks> markedworksList;
     @OneToMany(mappedBy = "studentId", fetch = FetchType.LAZY)
     private List<Classes> classesList;
+    
+    private Classes c;
+    
+    private Ks3grades kg3 = new Ks3grades();
 
     public Students() {
         //currentId++;
@@ -168,6 +174,28 @@ public class Students implements Serializable {
         }
         return false;
     }
+    
+    private String getKeyStage()
+    {
+        String s ="";
+        if(c == null)
+        {
+            System.out.println("Please set the class for the student");
+        }
+        else if(c.getKeyStage().equals("ks3"))
+        {
+           s = "ks3";
+        }
+        else if (c.getKeyStage().equals("ks4"))
+        {
+            s = "ks4";
+        }
+        else if(c.getKeyStage().equals("ks5"))
+        {
+            s = "ks5";
+        }
+        return s; 
+    }
 
     public String getTargetGrade() {
         return targetGrade;
@@ -184,13 +212,31 @@ public class Students implements Serializable {
     public void setMarkedWorkId(Markedworks markedWorkId) {
         this.markedWorkId = markedWorkId;
     }
+    
+    public void setClass(Classes cl)
+    {
+        this.c = cl;
+    }
 
-    public Classes getClassId() {
+    public String getClassId() {
         return classId;
+    }
+    
+    public void setClassId2()
+    {
+        if(c == null)
+        {
+            System.out.println("Please set class for the student");
+        }
+        else
+        {
+           this.classId = c.getClassId(); 
+        }
+        
     }
 
     public void setClassId(Classes classId) {
-        this.classId = classId;
+        this.classId = classId.getClassId();
     }
 
     @XmlTransient
