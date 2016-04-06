@@ -222,7 +222,15 @@ public class Students implements Serializable {
     }
 
     public void setTargetGrade(String targetGrade) {
-        this.targetGrade = targetGrade;
+        if(isGrade(targetGrade) == true)
+        {
+            this.targetGrade = targetGrade;
+        }
+        else
+        {
+            System.out.println("This is not a valid grade");
+        }
+        
     }
 
     public Markedworks getMarkedWorkId() {
