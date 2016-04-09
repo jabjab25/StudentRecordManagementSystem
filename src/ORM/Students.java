@@ -87,7 +87,7 @@ public class Students implements Serializable {
         //this.studentId = currentId.toString();
     }
 
-    public Students(String fn, String ln, String email, Date dob, String al1, String pCode, String tGrade) {
+    public Students(String fn, String ln, String email, Date dob, String al1, String pCode, String tGrade, Classes cl) {
         this.studentId = currentId.toString();
         currentId++;
         this.firstName = fn;
@@ -99,7 +99,11 @@ public class Students implements Serializable {
         {
             this.postCode = pCode;
         }
-        this.targetGrade = tGrade;
+        this.c = cl;
+        if(isGrade(tGrade)==true)
+        {
+            this.targetGrade = tGrade;
+        }
         
     }
 
