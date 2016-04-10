@@ -61,6 +61,8 @@ public class Ks3AverageGrade {
         }
         value = count/no;
         //System.out.println(value);
+        String grade = getGrade(value);
+        System.out.println(grade);
     }
     
     public double calcValueAdded()
@@ -121,5 +123,71 @@ public class Ks3AverageGrade {
        String tg = s.getTargetGrade();
        double d = kg3.getValue(tg);
        return d;
+    }
+    
+    private String getGrade(Double d)
+    {
+        String s = "";
+        if(d>=3.0&& d<3.6 )
+        {
+            s="3c";
+        }
+        else if(d>=3.6&&d<3.9)
+        {
+            s="3b";
+        }
+         else if(d>=3.9&&d<4.3)
+        {
+            s="3a";
+        }
+         else if(d>=4.3&&d<4.6)
+        {
+            s="4c";
+        }
+         else if(d>=4.6&&d<4.9)
+        {
+            s="4b";
+        }
+         else if(d>=4.9&&d<5.3)
+        {
+            s="4a";
+        }
+         else if(d>=5.3&&d<5.6)
+        {
+            s="5a";
+        }
+         else if(d>=5.6&&d<5.9)
+        {
+            s="5b";
+        }
+         else if(d>=5.9&&d<6.3)
+        {
+            s="5a";
+        }
+         else if(d>=6.3&&d<6.6)
+        {
+            s="6c";
+        }
+         else if(d>=6.6&&d<6.9)
+        {
+            s="6b";
+        }
+         else if(d>=6.9&&d<7.3)
+        {
+            s="6a";
+        }
+         else if(d>=7.3&&d<7.6)
+        {
+            s="7c";
+        }
+         else if(d>=7.6&&d<7.9)
+        {
+            s="7b";
+        }
+         else if(d>=7.9&&d<8.3)
+        {
+            s="7a";
+        }
+        return s;
     }
 }
