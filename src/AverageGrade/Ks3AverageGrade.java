@@ -63,6 +63,30 @@ public class Ks3AverageGrade {
         //System.out.println(value);
     }
     
+    public double calcValueAdded()
+    {
+        ArrayList<String> gw = getGradedWork();
+        //int index = 0;
+        int no = 0;
+        double count = 0;
+        double value;
+        
+        for(int index = 0; index<gw.size();index++)
+        {
+            String check = gw.get(index);
+            if(!check.equals(""))
+            {
+                double d = kg3.getValue(check);
+                count = count + d;
+                no++;
+            }
+        }
+        value = count/no;
+        //System.out.println(value);
+        double va = value - getTargetGradeValue();
+        //System.out.println(va);
+        return va;
+    }
     private ArrayList getGradedWork()
     {
         ArrayList<String> gw = new ArrayList<String>();
@@ -90,5 +114,12 @@ public class Ks3AverageGrade {
         gw.add(g10);
         
         return gw;
+    }
+    
+    private double getTargetGradeValue()
+    {
+       String tg = s.getTargetGrade();
+       double d = kg3.getValue(tg);
+       return d;
     }
 }
