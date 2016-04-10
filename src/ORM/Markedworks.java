@@ -332,6 +332,20 @@ public class Markedworks implements Serializable {
         }
         return s;
     }
+    private void defaultGrade()
+    {
+        task1 = "";
+        task2 = "";
+        task3 = "";
+        task4 = "";
+        task5 = "";
+        task6 = "";
+        task7 = "";
+        task8 = "";
+        task9 = "";
+        task10 = "";
+    }
+    
     @XmlTransient
     public List<Teachers> getTeachersList() {
         return teachersList;
