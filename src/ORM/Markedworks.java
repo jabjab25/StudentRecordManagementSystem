@@ -92,6 +92,7 @@ public class Markedworks implements Serializable {
     public Markedworks() {
         //currentId++;
         //this.markedWorkId = currentId.toString();
+        defaultGrade();
     }
 
     //public Markedworks(String markedWorkId) {
