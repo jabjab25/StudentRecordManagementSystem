@@ -20,6 +20,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import Grades.*;
 
 /**
  *
@@ -83,6 +84,10 @@ public class Markedworks implements Serializable {
     private List<Teachers> teachersList;
     @OneToMany(mappedBy = "markedWorkId", fetch = FetchType.LAZY)
     private List<Classes> classesList;
+    
+    private Ks3grades kg3 = new Ks3grades();
+    private Ks4grades kg4 = new Ks4grades();
+    private Ks5grades kg5 = new Ks5grades();
 
     public Markedworks() {
         //currentId++;
@@ -216,7 +221,46 @@ public class Markedworks implements Serializable {
     public void setClassId(Classes classId) {
         this.classId = classId;
     }
+    
+    private Boolean isGrade(String g)
+    {
+        if(getKeyStage().equals("ks3"))
+        {
+            return kg3.isGrade(g);
+        }
+        else if (getKeyStage().equals("ks4"))
+        {
+            return kg4.isGrade(g);
+        }
+        else if(getKeyStage().equals("ks5"))
+        {
+            return kg5.isGrade(g);
+        }
+        return false;
+        
+    }
 
+    private String getKeyStage()
+    {
+        String s ="";
+        if(classId ==null)
+        {
+            s = "please assign class";
+        }
+        else if(classId.getKeyStage().equals("ks3"))
+        {
+            s = "ks3";
+        }
+        else if(classId.getKeyStage().equals("ks4"))
+        {
+            s = "ks4";
+        }
+        else if(classId.getKeyStage().equals("ks5"))
+        {
+            s = "ks5";
+        }
+        return s;
+    }
     @XmlTransient
     public List<Teachers> getTeachersList() {
         return teachersList;
