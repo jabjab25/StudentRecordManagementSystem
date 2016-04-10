@@ -149,6 +149,11 @@ public class Students implements Serializable {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public void setDob(int day, int month, int year)
+    {
+        Date dob = new Date(year,month,day);
+        this.dateOfBirth = dob;
+    }
     public String getAddressLine1() {
         return addressLine1;
     }
