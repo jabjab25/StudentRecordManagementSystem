@@ -60,8 +60,7 @@ public class Ks3AverageGrade {
             }
         }
         value = count/no;
-        System.out.println(value);
-       
+        //System.out.println(value);
     }
     
     private ArrayList getGradedWork()
