@@ -113,10 +113,10 @@ public class Markedworks implements Serializable {
         return task1;
     }
 
-    public void setTask1(String task1) {
-        if(isGrade(task1) == true)
+    public void setTask1(String t1) {
+        if(isGrade(t1) == true)
         {
-            this.task1 = task1;
+            this.task1 = t1;
         }
         else
         {
@@ -129,10 +129,10 @@ public class Markedworks implements Serializable {
         return task2;
     }
 
-    public void setTask2(String task2) {
-         if(isGrade(task2) == true)
+    public void setTask2(String t2) {
+         if(isGrade(t2) == true)
         {
-            this.task2 = task2;
+            this.task2 = t2;
         }
         else
         {
@@ -144,10 +144,10 @@ public class Markedworks implements Serializable {
         return task3;
     }
 
-    public void setTask3(String task3) {
-         if(isGrade(task3) == true)
+    public void setTask3(String t3) {
+         if(isGrade(t3) == true)
         {
-            this.task3 = task3;
+            this.task3 = t3;
         }
         else
         {
@@ -159,10 +159,10 @@ public class Markedworks implements Serializable {
         return task4;
     }
 
-    public void setTask4(String task4) {
-         if(isGrade(task4) == true)
+    public void setTask4(String t4) {
+         if(isGrade(t4) == true)
         {
-            this.task4 = task4;
+            this.task4 = t4;
         }
         else
         {
@@ -174,10 +174,10 @@ public class Markedworks implements Serializable {
         return task5;
     }
 
-    public void setTask5(String task5) {
-         if(isGrade(task5) == true)
+    public void setTask5(String t5) {
+         if(isGrade(t5) == true)
         {
-            this.task5 = task5;
+            this.task5 = t5;
         }
         else
         {
@@ -189,10 +189,10 @@ public class Markedworks implements Serializable {
         return task6;
     }
 
-    public void setTask6(String task6) {
-         if(isGrade(task1) == true)
+    public void setTask6(String t6) {
+         if(isGrade(t6) == true)
         {
-            this.task6 = task6;
+            this.task6 = t6;
         }
         else
         {
@@ -204,10 +204,10 @@ public class Markedworks implements Serializable {
         return task7;
     }
 
-    public void setTask7(String task7) {
-         if(isGrade(task7) == true)
+    public void setTask7(String t7) {
+         if(isGrade(t7) == true)
         {
-            this.task7 = task7;
+            this.task7 = t7;
         }
         else
         {
@@ -219,10 +219,10 @@ public class Markedworks implements Serializable {
         return task8;
     }
 
-    public void setTask8(String task8) {
-         if(isGrade(task8) == true)
+    public void setTask8(String t8) {
+         if(isGrade(t8) == true)
         {
-            this.task8 = task8;
+            this.task8 = t8;
         }
         else
         {
@@ -234,10 +234,10 @@ public class Markedworks implements Serializable {
         return task9;
     }
 
-    public void setTask9(String task9) {
-         if(isGrade(task9) == true)
+    public void setTask9(String t9) {
+         if(isGrade(t9) == true)
         {
-            this.task9 = task9;
+            this.task9 = t9;
         }
         else
         {
@@ -249,10 +249,10 @@ public class Markedworks implements Serializable {
         return task10;
     }
 
-    public void setTask10(String task10) {
-         if(isGrade(task10) == true)
+    public void setTask10(String t10) {
+         if(isGrade(t10) == true)
         {
-            this.task10 = task10;
+            this.task10 = t10;
         }
         else
         {
