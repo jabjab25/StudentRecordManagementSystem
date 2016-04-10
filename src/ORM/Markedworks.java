@@ -114,7 +114,15 @@ public class Markedworks implements Serializable {
     }
 
     public void setTask1(String task1) {
-        this.task1 = task1;
+        if(isGrade(task1) == true)
+        {
+            this.task1 = task1;
+        }
+        else
+        {
+            System.out.println("This is not a valid grade");
+        }
+        
     }
 
     public String getTask2() {
@@ -122,7 +130,14 @@ public class Markedworks implements Serializable {
     }
 
     public void setTask2(String task2) {
-        this.task2 = task2;
+         if(isGrade(task2) == true)
+        {
+            this.task2 = task2;
+        }
+        else
+        {
+            System.out.println("This is not a valid grade");
+        }
     }
 
     public String getTask3() {
@@ -130,7 +145,14 @@ public class Markedworks implements Serializable {
     }
 
     public void setTask3(String task3) {
-        this.task3 = task3;
+         if(isGrade(task3) == true)
+        {
+            this.task3 = task3;
+        }
+        else
+        {
+            System.out.println("This is not a valid grade");
+        }
     }
 
     public String getTask4() {
@@ -138,7 +160,14 @@ public class Markedworks implements Serializable {
     }
 
     public void setTask4(String task4) {
-        this.task4 = task4;
+         if(isGrade(task4) == true)
+        {
+            this.task4 = task4;
+        }
+        else
+        {
+            System.out.println("This is not a valid grade");
+        }
     }
 
     public String getTask5() {
@@ -146,7 +175,14 @@ public class Markedworks implements Serializable {
     }
 
     public void setTask5(String task5) {
-        this.task5 = task5;
+         if(isGrade(task5) == true)
+        {
+            this.task5 = task5;
+        }
+        else
+        {
+            System.out.println("This is not a valid grade");
+        }
     }
 
     public String getTask6() {
@@ -154,7 +190,14 @@ public class Markedworks implements Serializable {
     }
 
     public void setTask6(String task6) {
-        this.task6 = task6;
+         if(isGrade(task1) == true)
+        {
+            this.task6 = task6;
+        }
+        else
+        {
+            System.out.println("This is not a valid grade");
+        }
     }
 
     public String getTask7() {
@@ -162,7 +205,14 @@ public class Markedworks implements Serializable {
     }
 
     public void setTask7(String task7) {
-        this.task7 = task7;
+         if(isGrade(task7) == true)
+        {
+            this.task7 = task7;
+        }
+        else
+        {
+            System.out.println("This is not a valid grade");
+        }
     }
 
     public String getTask8() {
@@ -170,7 +220,14 @@ public class Markedworks implements Serializable {
     }
 
     public void setTask8(String task8) {
-        this.task8 = task8;
+         if(isGrade(task8) == true)
+        {
+            this.task8 = task8;
+        }
+        else
+        {
+            System.out.println("This is not a valid grade");
+        }
     }
 
     public String getTask9() {
@@ -178,7 +235,14 @@ public class Markedworks implements Serializable {
     }
 
     public void setTask9(String task9) {
-        this.task9 = task9;
+         if(isGrade(task9) == true)
+        {
+            this.task9 = task9;
+        }
+        else
+        {
+            System.out.println("This is not a valid grade");
+        }
     }
 
     public String getTask10() {
@@ -186,7 +250,14 @@ public class Markedworks implements Serializable {
     }
 
     public void setTask10(String task10) {
-        this.task10 = task10;
+         if(isGrade(task10) == true)
+        {
+            this.task10 = task10;
+        }
+        else
+        {
+            System.out.println("This is not a valid grade");
+        }
     }
 
     @XmlTransient
