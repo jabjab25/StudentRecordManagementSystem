@@ -10,7 +10,8 @@ package Grades;
  * @author Jermaine
  */
 import java.util.*;
-public class Ks3grades {
+import java.io.Serializable;
+public class Ks3grades implements Serializable {
     private HashMap<String,Double> grade = new HashMap<>();
     
     public Ks3grades()

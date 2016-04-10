@@ -5,13 +5,14 @@
  */
 package Grades;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
  *
  * @author Jermaine
  */
-public class Ks5grades {
+public class Ks5grades implements Serializable{
 
     private HashMap<String, Integer> grades = new HashMap<>();
 

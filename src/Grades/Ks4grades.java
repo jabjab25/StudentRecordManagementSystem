@@ -6,12 +6,13 @@
 package Grades;
 
 import java.util.HashMap;
+import java.io.Serializable;
 
 /**
  *
  * @author Jermaine
  */
-public class Ks4grades {
+public class Ks4grades implements Serializable{
     private HashMap<String,Integer> grades = new HashMap<>();
     
     public Ks4grades()
