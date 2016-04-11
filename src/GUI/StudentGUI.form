@@ -25,16 +25,16 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="fnTxt" min="-2" max="-2" attributes="0"/>
+                      <Component id="fnTxt" min="-2" pref="83" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lnTxt" min="-2" max="-2" attributes="0"/>
+                      <Component id="lnTxt" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -43,45 +43,49 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="dobTxt" min="-2" max="-2" attributes="0"/>
-                          <Component id="emailTxt" min="-2" max="-2" attributes="0"/>
+                          <Component id="emailTxt" max="32767" attributes="0"/>
+                          <Component id="dobTxt" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="98" max="32767" attributes="0"/>
+              <EmptySpace pref="6" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="mwTxt" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="mwTxt" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="addrlTxt" min="-2" pref="87" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <Component id="postcodeTxt" min="-2" pref="105" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="targetgTxt" min="-2" pref="108" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <Component id="classTxt" min="-2" pref="133" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="addrlTxt" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Component id="clearBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="createBtn" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="postcodeTxt" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="targetgTxt" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="classTxt" min="-2" max="-2" attributes="0"/>
-                  </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -147,9 +151,6 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="fnTxt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="First Name"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -162,9 +163,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="lnTxt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Last Name"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -172,14 +170,8 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="emailTxt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="email"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="dobTxt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="dob"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -192,9 +184,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="addrlTxt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="addr line 1 "/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
@@ -207,17 +196,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="postcodeTxt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="post code "/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="postcodeTxtActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="targetgTxt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="target grade "/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
@@ -225,9 +208,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="classTxt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="class id "/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
@@ -235,9 +215,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="mwTxt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="marked work id "/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>
