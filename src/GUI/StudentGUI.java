@@ -22,6 +22,10 @@ public class StudentGUI extends javax.swing.JFrame {
     public StudentGUI() {
         initComponents();
         clearBtn.setVisible(false);
+        studentIdTxt.setVisible(false);
+        jLabel10.setVisible(false);
+        okBtn.setVisible(false);
+        updateBtn.setVisible(false);
     }
 
     /**
@@ -53,6 +57,10 @@ public class StudentGUI extends javax.swing.JFrame {
         classTxt = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         mwTxt = new javax.swing.JTextField();
+        updateBtn = new javax.swing.JButton();
+        okBtn = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        studentIdTxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,10 +102,35 @@ public class StudentGUI extends javax.swing.JFrame {
 
         jLabel9.setText("Marked Work ID");
 
+        updateBtn.setText("Update");
+        updateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateBtnActionPerformed(evt);
+            }
+        });
+
+        okBtn.setText("OK");
+        okBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("Student ID");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(okBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(updateBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(clearBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(createBtn))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -118,34 +151,32 @@ public class StudentGUI extends javax.swing.JFrame {
                             .addComponent(emailTxt)
                             .addComponent(dobTxt))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(mwTxt))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(addrlTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(22, 22, 22)
-                                .addComponent(postcodeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(targetgTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(29, 29, 29)
-                                .addComponent(classTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(82, 82, 82))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(clearBtn)
+                        .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(createBtn))))
+                        .addComponent(studentIdTxt))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(mwTxt))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(addrlTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(22, 22, 22)
+                        .addComponent(postcodeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(targetgTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(29, 29, 29)
+                        .addComponent(classTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(82, 82, 82))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,10 +208,16 @@ public class StudentGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(mwTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(studentIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(createBtn)
-                    .addComponent(clearBtn)))
+                    .addComponent(clearBtn)
+                    .addComponent(updateBtn)
+                    .addComponent(okBtn)))
         );
 
         pack();
@@ -206,6 +243,7 @@ public class StudentGUI extends javax.swing.JFrame {
 
     private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
         clearBtn.setVisible(true);
+        updateBtn.setVisible(true);
         EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("StudentRecordManagementSystemPU");
 
         EntityManager entitymanager = emfactory.createEntityManager();
@@ -223,17 +261,15 @@ public class StudentGUI extends javax.swing.JFrame {
         int month = Integer.parseInt(ss[1]);
         int year = Integer.parseInt(ss[2]);
         st1.setDob(day, month, year);
-        if(!classTxt.equals("")){
+        if (!classTxt.equals("")) {
             Classes cl = entitymanager.find(Classes.class, classTxt.getText().trim());
-        st1.setClassId(cl);
-        //st1.setClassId2();
+            st1.setClassId(cl);
+            //st1.setClassId2();
         }
-        
 
         st1.setTargetGrade(targetgTxt.getText().trim());
-        
-        if(!mwTxt.equals(""))
-        {
+
+        if (!mwTxt.equals("")) {
             Markedworks mw = entitymanager.find(Markedworks.class, mwTxt.getText().trim());
             st1.setMarkedWorkId(mw);
         }
@@ -245,6 +281,65 @@ public class StudentGUI extends javax.swing.JFrame {
         emfactory.close();
         // TODO add your handling code here:
     }//GEN-LAST:event_createBtnActionPerformed
+
+    private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
+        // TODO add your handling code here:
+        clearBtn.setVisible(true);
+        studentIdTxt.setVisible(true);
+        jLabel10.setVisible(true);
+        okBtn.setVisible(true);
+    }//GEN-LAST:event_updateBtnActionPerformed
+
+    private void okBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okBtnActionPerformed
+        // TODO add your handling code here:
+        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("StudentRecordManagementSystemPU");
+
+        EntityManager entitymanager = emfactory.createEntityManager();
+        entitymanager.getTransaction().begin();
+
+        Students s1 = entitymanager.find(Students.class, studentIdTxt.getText().trim());
+
+        if (!fnTxt.getText().equals("")) {
+            s1.setFirstName(fnTxt.getText().trim());
+        }
+        if (!lnTxt.getText().equals("")) {
+            s1.setLastName(lnTxt.getText().trim());
+        }
+        if (!emailTxt.getText().equals("")) {
+            s1.setEmailAddress(emailTxt.getText().trim());
+        }
+        if (!postcodeTxt.getText().equals("")) {
+            s1.setPostCode(postcodeTxt.getText().trim());
+        }
+        if (!addrlTxt.getText().equals("")) {
+            s1.setAddressLine1(addrlTxt.getText().trim());
+        }
+        if (!targetgTxt.getText().equals("")) {
+            s1.setTargetGrade(targetgTxt.getText().trim());
+        }
+        if (!classTxt.getText().equals("")) {
+            Classes cl = entitymanager.find(Classes.class, classTxt.getText().trim());
+            s1.setClassId(cl);
+        }
+        if (!mwTxt.getText().equals("")) {
+            Markedworks mw = entitymanager.find(Markedworks.class, mwTxt.getText().trim());
+            s1.setMarkedWorkId(mw);
+        }
+        if (!dobTxt.getText().equals("")) {
+            String s = dobTxt.getText().trim();
+            String[] ss = s.split("/");
+            int day = Integer.parseInt(ss[0]);
+            int month = Integer.parseInt(ss[1]);
+            int year = Integer.parseInt(ss[2]);
+            s1.setDob(day, month, year);
+        }
+        entitymanager.persist(s1);
+        entitymanager.getTransaction().commit();
+
+        entitymanager.close();
+        emfactory.close();
+
+    }//GEN-LAST:event_okBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,7 +372,7 @@ public class StudentGUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new StudentGUI().setVisible(true);
-               
+
             }
         });
     }
@@ -291,6 +386,7 @@ public class StudentGUI extends javax.swing.JFrame {
     private javax.swing.JTextField emailTxt;
     private javax.swing.JTextField fnTxt;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -301,7 +397,10 @@ public class StudentGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField lnTxt;
     private javax.swing.JTextField mwTxt;
+    private javax.swing.JButton okBtn;
     private javax.swing.JTextField postcodeTxt;
+    private javax.swing.JTextField studentIdTxt;
     private javax.swing.JTextField targetgTxt;
+    private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
 }
