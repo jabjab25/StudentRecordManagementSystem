@@ -234,6 +234,7 @@ public class StudentGUI extends javax.swing.JFrame {
         targetgTxt.setText("");
         classTxt.setText("");
         mwTxt.setText("");
+        studentIdTxt.setText("");
         clearBtn.setVisible(false);
         okBtn.setVisible(false);
         studentIdTxt.setVisible(false);
