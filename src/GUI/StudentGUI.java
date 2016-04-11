@@ -236,6 +236,8 @@ public class StudentGUI extends javax.swing.JFrame {
         mwTxt.setText("");
         clearBtn.setVisible(false);
         okBtn.setVisible(false);
+        studentIdTxt.setVisible(false);
+        jLabel10.setVisible(false);
     }//GEN-LAST:event_clearBtnActionPerformed
 
     private void postcodeTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_postcodeTxtActionPerformed
