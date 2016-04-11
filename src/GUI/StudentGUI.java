@@ -187,6 +187,15 @@ public class StudentGUI extends javax.swing.JFrame {
 
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
         // TODO add your handling code here:
+        fnTxt.setText("");
+        lnTxt.setText("");
+        addrlTxt.setText("");
+        emailTxt.setText("");
+        postcodeTxt.setText("");
+        dobTxt.setText("");
+        targetgTxt.setText("");
+        classTxt.setText("");
+        mwTxt.setText("");
     }//GEN-LAST:event_clearBtnActionPerformed
 
     private void postcodeTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_postcodeTxtActionPerformed
@@ -211,12 +220,20 @@ public class StudentGUI extends javax.swing.JFrame {
         int month = Integer.parseInt(ss[1]);
         int year = Integer.parseInt(ss[2]);
         st1.setDob(day, month, year);
-
-        Classes cl = entitymanager.find(Classes.class, classTxt.getText().trim());
+        if(!classTxt.equals("")){
+            Classes cl = entitymanager.find(Classes.class, classTxt.getText().trim());
         st1.setClassId(cl);
         //st1.setClassId2();
+        }
+        
 
         st1.setTargetGrade(targetgTxt.getText().trim());
+        
+        if(!mwTxt.equals(""))
+        {
+            Markedworks mw = entitymanager.find(Markedworks.class, mwTxt.getText().trim());
+            st1.setMarkedWorkId(mw);
+        }
 
         entitymanager.persist(st1);
         entitymanager.getTransaction().commit();
