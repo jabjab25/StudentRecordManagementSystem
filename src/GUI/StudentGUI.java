@@ -21,6 +21,7 @@ public class StudentGUI extends javax.swing.JFrame {
      */
     public StudentGUI() {
         initComponents();
+        clearBtn.setVisible(false);
     }
 
     /**
@@ -196,6 +197,7 @@ public class StudentGUI extends javax.swing.JFrame {
         targetgTxt.setText("");
         classTxt.setText("");
         mwTxt.setText("");
+        clearBtn.setVisible(false);
     }//GEN-LAST:event_clearBtnActionPerformed
 
     private void postcodeTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_postcodeTxtActionPerformed
@@ -203,6 +205,7 @@ public class StudentGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_postcodeTxtActionPerformed
 
     private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
+        clearBtn.setVisible(true);
         EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("StudentRecordManagementSystemPU");
 
         EntityManager entitymanager = emfactory.createEntityManager();
@@ -274,6 +277,7 @@ public class StudentGUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new StudentGUI().setVisible(true);
+               
             }
         });
     }
