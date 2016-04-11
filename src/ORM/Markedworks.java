@@ -43,6 +43,7 @@ import Grades.*;
     @NamedQuery(name = "Markedworks.findByTask9", query = "SELECT m FROM Markedworks m WHERE m.task9 = :task9"),
     @NamedQuery(name = "Markedworks.findByTask10", query = "SELECT m FROM Markedworks m WHERE m.task10 = :task10")})
 public class Markedworks implements Serializable {
+
     private static final long serialVersionUID = 1L;
     private static Integer currentId = 1;
     @Id
@@ -84,10 +85,6 @@ public class Markedworks implements Serializable {
     private List<Teachers> teachersList;
     @OneToMany(mappedBy = "markedWorkId", fetch = FetchType.LAZY)
     private List<Classes> classesList;
-    
-    private Ks3grades kg3 = new Ks3grades();
-    private Ks4grades kg4 = new Ks4grades();
-    private Ks5grades kg5 = new Ks5grades();
 
     public Markedworks() {
         //currentId++;
@@ -96,11 +93,10 @@ public class Markedworks implements Serializable {
     }
 
     //public Markedworks(String markedWorkId) {
-        //this.markedWorkId = markedWorkId;
-        //this.markedWorkId = currentId.toString();
-        //currentId++;
+    //this.markedWorkId = markedWorkId;
+    //this.markedWorkId = currentId.toString();
+    //currentId++;
     //}
-
     public String getMarkedWorkId() {
         return markedWorkId;
     }
@@ -115,15 +111,12 @@ public class Markedworks implements Serializable {
     }
 
     public void setTask1(String t1) {
-        if(isGrade(t1) == true)
-        {
+        if (isGrade(t1) == true) {
             this.task1 = t1;
-        }
-        else
-        {
+        } else {
             System.out.println("This is not a valid grade");
         }
-        
+
     }
 
     public String getTask2() {
@@ -131,12 +124,9 @@ public class Markedworks implements Serializable {
     }
 
     public void setTask2(String t2) {
-         if(isGrade(t2) == true)
-        {
+        if (isGrade(t2) == true) {
             this.task2 = t2;
-        }
-        else
-        {
+        } else {
             System.out.println("This is not a valid grade");
         }
     }
@@ -146,12 +136,9 @@ public class Markedworks implements Serializable {
     }
 
     public void setTask3(String t3) {
-         if(isGrade(t3) == true)
-        {
+        if (isGrade(t3) == true) {
             this.task3 = t3;
-        }
-        else
-        {
+        } else {
             System.out.println("This is not a valid grade");
         }
     }
@@ -161,12 +148,9 @@ public class Markedworks implements Serializable {
     }
 
     public void setTask4(String t4) {
-         if(isGrade(t4) == true)
-        {
+        if (isGrade(t4) == true) {
             this.task4 = t4;
-        }
-        else
-        {
+        } else {
             System.out.println("This is not a valid grade");
         }
     }
@@ -176,12 +160,9 @@ public class Markedworks implements Serializable {
     }
 
     public void setTask5(String t5) {
-         if(isGrade(t5) == true)
-        {
+        if (isGrade(t5) == true) {
             this.task5 = t5;
-        }
-        else
-        {
+        } else {
             System.out.println("This is not a valid grade");
         }
     }
@@ -191,12 +172,9 @@ public class Markedworks implements Serializable {
     }
 
     public void setTask6(String t6) {
-         if(isGrade(t6) == true)
-        {
+        if (isGrade(t6) == true) {
             this.task6 = t6;
-        }
-        else
-        {
+        } else {
             System.out.println("This is not a valid grade");
         }
     }
@@ -206,12 +184,9 @@ public class Markedworks implements Serializable {
     }
 
     public void setTask7(String t7) {
-         if(isGrade(t7) == true)
-        {
+        if (isGrade(t7) == true) {
             this.task7 = t7;
-        }
-        else
-        {
+        } else {
             System.out.println("This is not a valid grade");
         }
     }
@@ -221,12 +196,9 @@ public class Markedworks implements Serializable {
     }
 
     public void setTask8(String t8) {
-         if(isGrade(t8) == true)
-        {
+        if (isGrade(t8) == true) {
             this.task8 = t8;
-        }
-        else
-        {
+        } else {
             System.out.println("This is not a valid grade");
         }
     }
@@ -236,12 +208,9 @@ public class Markedworks implements Serializable {
     }
 
     public void setTask9(String t9) {
-         if(isGrade(t9) == true)
-        {
+        if (isGrade(t9) == true) {
             this.task9 = t9;
-        }
-        else
-        {
+        } else {
             System.out.println("This is not a valid grade");
         }
     }
@@ -251,12 +220,9 @@ public class Markedworks implements Serializable {
     }
 
     public void setTask10(String t10) {
-         if(isGrade(t10) == true)
-        {
+        if (isGrade(t10) == true) {
             this.task10 = t10;
-        }
-        else
-        {
+        } else {
             System.out.println("This is not a valid grade");
         }
     }
@@ -293,48 +259,38 @@ public class Markedworks implements Serializable {
     public void setClassId(Classes classId) {
         this.classId = classId;
     }
-    
-    private Boolean isGrade(String g)
-    {
-        if(getKeyStage().equals("ks3"))
-        {
+
+    private Boolean isGrade(String g) {
+        Ks3grades kg3 = new Ks3grades();
+        Ks4grades kg4 = new Ks4grades();
+        Ks5grades kg5 = new Ks5grades();
+
+        if (getKeyStage().equals("ks3")) {
             return kg3.isGrade(g);
-        }
-        else if (getKeyStage().equals("ks4"))
-        {
+        } else if (getKeyStage().equals("ks4")) {
             return kg4.isGrade(g);
-        }
-        else if(getKeyStage().equals("ks5"))
-        {
+        } else if (getKeyStage().equals("ks5")) {
             return kg5.isGrade(g);
         }
         return false;
-        
+
     }
 
-    private String getKeyStage()
-    {
-        String s ="";
-        if(classId ==null)
-        {
+    private String getKeyStage() {
+        String s = "";
+        if (classId == null) {
             s = "please assign class";
-        }
-        else if(classId.getKeyStage().equals("ks3"))
-        {
+        } else if (classId.getKeyStage().equals("ks3")) {
             s = "ks3";
-        }
-        else if(classId.getKeyStage().equals("ks4"))
-        {
+        } else if (classId.getKeyStage().equals("ks4")) {
             s = "ks4";
-        }
-        else if(classId.getKeyStage().equals("ks5"))
-        {
+        } else if (classId.getKeyStage().equals("ks5")) {
             s = "ks5";
         }
         return s;
     }
-    private void defaultGrade()
-    {
+
+    private void defaultGrade() {
         task1 = "";
         task2 = "";
         task3 = "";
@@ -346,7 +302,7 @@ public class Markedworks implements Serializable {
         task9 = "";
         task10 = "";
     }
-    
+
     @XmlTransient
     public List<Teachers> getTeachersList() {
         return teachersList;
@@ -389,5 +345,5 @@ public class Markedworks implements Serializable {
     public String toString() {
         return "ORM.Markedworks[ markedWorkId=" + markedWorkId + " ]";
     }
-    
+
 }
