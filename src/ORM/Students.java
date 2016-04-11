@@ -6,6 +6,7 @@
 package ORM;
 
 import Grades.*;
+import java.util.Calendar;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -144,8 +145,11 @@ public class Students implements Serializable {
     }
 
     public void setDob(int day, int month, int year) {
-        Date dob = new Date(year, month, day);
-        this.dateOfBirth = dob;
+        Calendar cal = Calendar.getInstance();
+        int m = month -1;
+        cal.set(year,m,day);
+        //Date dob = new Date(year, month, day);
+        this.dateOfBirth = cal.getTime();
     }
 
     public String getAddressLine1() {
