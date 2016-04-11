@@ -43,6 +43,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Students.findByPostCode", query = "SELECT s FROM Students s WHERE s.postCode = :postCode"),
     @NamedQuery(name = "Students.findByTargetGrade", query = "SELECT s FROM Students s WHERE s.targetGrade = :targetGrade")})
 public class Students implements Serializable {
+
     private static final long serialVersionUID = 1L;
     private static Integer currentId = 1000;
     @Id
@@ -69,18 +70,13 @@ public class Students implements Serializable {
     private Markedworks markedWorkId;
     @JoinColumn(name = "CLASS_ID", referencedColumnName = "CLASS_ID")
     @ManyToOne(fetch = FetchType.LAZY)
-    private String classId;
-    //private Classes classId;
+    private Classes classId;
     @OneToMany(mappedBy = "studentId", fetch = FetchType.LAZY)
     private List<Markedworks> markedworksList;
     @OneToMany(mappedBy = "studentId", fetch = FetchType.LAZY)
     private List<Classes> classesList;
-    
-    private Classes c;
-    
-    private Ks3grades kg3 = new Ks3grades();
-    private Ks4grades kg4 = new Ks4grades();
-    private Ks5grades kg5 = new Ks5grades();
+
+    //private Classes c;
 
     public Students() {
         //currentId++;
@@ -95,16 +91,14 @@ public class Students implements Serializable {
         this.emailAddress = email;
         this.dateOfBirth = dob;
         this.addressLine1 = al1;
-        if(checkPostcode(pCode)==true)
-        {
+        if (checkPostcode(pCode) == true) {
             this.postCode = pCode;
         }
-        this.c = cl;
-        if(isGrade(tGrade)==true)
-        {
+        this.classId = cl;
+        if (isGrade(tGrade) == true) {
             this.targetGrade = tGrade;
         }
-        
+
     }
 
     public String getStudentId() {
@@ -112,9 +106,9 @@ public class Students implements Serializable {
     }
 
     public void setStudentId() {
-       
+
         this.studentId = currentId.toString();
-       currentId++;
+        currentId++;
     }
 
     public String getFirstName() {
@@ -149,11 +143,11 @@ public class Students implements Serializable {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public void setDob(int day, int month, int year)
-    {
-        Date dob = new Date(year,month,day);
+    public void setDob(int day, int month, int year) {
+        Date dob = new Date(year, month, day);
         this.dateOfBirth = dob;
     }
+
     public String getAddressLine1() {
         return addressLine1;
     }
@@ -167,60 +161,44 @@ public class Students implements Serializable {
     }
 
     public void setPostCode(String postCode) {
-        if(checkPostcode(postCode)== true)
-        {
+        if (checkPostcode(postCode) == true) {
             this.postCode = postCode;
-        }
-        else
-        {
+        } else {
             System.out.println("this is not a valid postcode");
         }
     }
-    
-    public boolean checkPostcode(String postCode)
-    {
-        if (postCode.length()<=8)
-        {
+
+    public boolean checkPostcode(String postCode) {
+        if (postCode.length() <= 8) {
             return true;
         }
         return false;
     }
-    
-    private String getKeyStage()
-    {
-        String s ="";
-        if(c == null)
-        {
+
+    private String getKeyStage() {
+        String s = "";
+        if (classId == null) {
             System.out.println("Please set the class for the student");
-        }
-        else if(c.getKeyStage().equals("ks3"))
-        {
-           s = "ks3";
-        }
-        else if (c.getKeyStage().equals("ks4"))
-        {
+        } else if (classId.getKeyStage().equals("ks3")) {
+            s = "ks3";
+        } else if (classId.getKeyStage().equals("ks4")) {
             s = "ks4";
-        }
-        else if(c.getKeyStage().equals("ks5"))
-        {
+        } else if (classId.getKeyStage().equals("ks5")) {
             s = "ks5";
         }
-        return s; 
+        return s;
     }
-    
-    private boolean isGrade(String g)
-    {
-        
-        if(getKeyStage().equals("ks3"))
-        {
+
+    private boolean isGrade(String g) {
+        Ks3grades kg3 = new Ks3grades();
+        Ks4grades kg4 = new Ks4grades();
+        Ks5grades kg5 = new Ks5grades();
+
+        if (getKeyStage().equals("ks3")) {
             return kg3.isGrade(g);
-        }
-        else if (getKeyStage().equals("ks4"))
-        {
+        } else if (getKeyStage().equals("ks4")) {
             return kg4.isGrade(g);
-        }
-        else if(getKeyStage().equals("ks5"))
-        {
+        } else if (getKeyStage().equals("ks5")) {
             return kg5.isGrade(g);
         }
         return false;
@@ -231,15 +209,12 @@ public class Students implements Serializable {
     }
 
     public void setTargetGrade(String targetGrade) {
-        if(isGrade(targetGrade) == true)
-        {
+        if (isGrade(targetGrade) == true) {
             this.targetGrade = targetGrade;
-        }
-        else
-        {
+        } else {
             System.out.println("This is not a valid grade");
         }
-        
+
     }
 
     public Markedworks getMarkedWorkId() {
@@ -249,31 +224,29 @@ public class Students implements Serializable {
     public void setMarkedWorkId(Markedworks markedWorkId) {
         this.markedWorkId = markedWorkId;
     }
-    
-    public void setClass(Classes cl)
-    {
-        this.c = cl;
-    }
 
-    public String getClassId() {
+//    public void setClass(Classes cl) {
+//        this.c = cl;
+//    }
+
+    public Classes getClassId() {
         return classId;
     }
-    
-    public void setClassId2()
-    {
-        if(c == null)
-        {
-            System.out.println("Please set class for the student");
-        }
-        else
-        {
-           this.classId = c.getClassId(); 
-        }
-        
-    }
 
+//    public void setClassId2()
+//    {
+//        if(c == null)
+//        {
+//            System.out.println("Please set class for the student");
+//        }
+//        else
+//        {
+//           this.classId = c.getClassId(); 
+//        }
+//        
+//    }
     public void setClassId(Classes classId) {
-        this.classId = classId.getClassId();
+        this.classId = classId;
     }
 
     @XmlTransient
@@ -318,5 +291,5 @@ public class Students implements Serializable {
     public String toString() {
         return "ORM.Students[ studentId=" + studentId + " ]";
     }
-    
+
 }
