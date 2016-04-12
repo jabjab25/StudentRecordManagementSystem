@@ -5,6 +5,11 @@
  */
 package GUI;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import ORM.*;
+
 /**
  *
  * @author Jermaine
@@ -16,6 +21,8 @@ public class UserGUI extends javax.swing.JFrame {
      */
     public UserGUI() {
         initComponents();
+        clearBtn.setVisible(false);
+        updateBtn.setVisible(false);
     }
 
     /**
@@ -30,7 +37,6 @@ public class UserGUI extends javax.swing.JFrame {
         createBtn = new javax.swing.JButton();
         clearBtn = new javax.swing.JButton();
         updateBtn = new javax.swing.JButton();
-        okBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         tIdTxt = new javax.swing.JTextField();
@@ -53,23 +59,22 @@ public class UserGUI extends javax.swing.JFrame {
         });
 
         updateBtn.setText("Update");
-
-        okBtn.setText("OK");
+        updateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateBtnActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Teacher ID");
 
         jLabel2.setText("Password");
-
-        pwdTxt.setText("jPasswordField1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 122, Short.MAX_VALUE)
-                .addComponent(okBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(updateBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(clearBtn)
@@ -80,12 +85,12 @@ public class UserGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tIdTxt))
+                        .addComponent(tIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pwdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(pwdTxt)))
+                .addGap(0, 247, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,8 +106,7 @@ public class UserGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(createBtn)
                     .addComponent(clearBtn)
-                    .addComponent(updateBtn)
-                    .addComponent(okBtn)))
+                    .addComponent(updateBtn)))
         );
 
         pack();
@@ -110,11 +114,52 @@ public class UserGUI extends javax.swing.JFrame {
 
     private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
         // TODO add your handling code here:
+         clearBtn.setVisible(true);
+        updateBtn.setVisible(true);
+        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("StudentRecordManagementSystemPU");
+
+        EntityManager entitymanager = emfactory.createEntityManager();
+        entitymanager.getTransaction().begin();
+        Users u1 = new Users();
+        
+        Teachers t1 = entitymanager.find(Teachers.class, tIdTxt.getText().trim());
+        u1.setTeachers(t1);
+        u1.setPassword(pwdTxt.getText().trim());
+        u1.setUsername();
+        u1.setTeacherId();
+        entitymanager.persist(u1);
+        entitymanager.getTransaction().commit();
+
+        entitymanager.close();
+        emfactory.close();
     }//GEN-LAST:event_createBtnActionPerformed
 
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
         // TODO add your handling code here:
+        tIdTxt.setText("");
+        pwdTxt.setText("");
+        clearBtn.setVisible(false);
     }//GEN-LAST:event_clearBtnActionPerformed
+
+    private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
+        // TODO add your handling code here:
+         clearBtn.setVisible(true);
+         EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("StudentRecordManagementSystemPU");
+
+        EntityManager entitymanager = emfactory.createEntityManager();
+        entitymanager.getTransaction().begin();
+        
+        Users u1 = entitymanager.find(Users.class, tIdTxt.getText().trim());
+        u1.setPassword(pwdTxt.getText());
+        entitymanager.persist(u1);
+        entitymanager.getTransaction().commit();
+
+        entitymanager.close();
+        emfactory.close();
+        
+        
+         
+    }//GEN-LAST:event_updateBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,7 +201,6 @@ public class UserGUI extends javax.swing.JFrame {
     private javax.swing.JButton createBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JButton okBtn;
     private javax.swing.JPasswordField pwdTxt;
     private javax.swing.JTextField tIdTxt;
     private javax.swing.JButton updateBtn;
