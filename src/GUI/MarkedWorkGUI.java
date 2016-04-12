@@ -5,6 +5,11 @@
  */
 package GUI;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import ORM.*;
+
 /**
  *
  * @author Jermaine
@@ -16,6 +21,12 @@ public class MarkedWorkGUI extends javax.swing.JFrame {
      */
     public MarkedWorkGUI() {
         initComponents();
+        okBtn.setVisible(false);
+        clearBtn.setVisible(false);
+        updateBtn.setVisible(false);
+        mwIdTxt.setVisible(false);
+        jLabel14.setVisible(false);
+
     }
 
     /**
@@ -57,6 +68,8 @@ public class MarkedWorkGUI extends javax.swing.JFrame {
         clearBtn = new javax.swing.JButton();
         updateBtn = new javax.swing.JButton();
         okBtn = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        mwIdTxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,12 +100,40 @@ public class MarkedWorkGUI extends javax.swing.JFrame {
         jLabel13.setText("Class ID");
 
         createBtn.setText("Create");
+        createBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createBtnActionPerformed(evt);
+            }
+        });
 
         clearBtn.setText("Clear");
+        clearBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearBtnActionPerformed(evt);
+            }
+        });
 
         updateBtn.setText("Update");
+        updateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateBtnActionPerformed(evt);
+            }
+        });
 
         okBtn.setText("OK");
+        okBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setText("Marked Work ID");
+
+        mwIdTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mwIdTxtActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -133,40 +174,48 @@ public class MarkedWorkGUI extends javax.swing.JFrame {
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(t1Txt, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 54, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel12)
+                        .addComponent(updateBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tIdTxt))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel10)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(t10Txt))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jLabel9)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(t8Txt))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jLabel8)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(t6Txt))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jLabel7)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(t4Txt))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jLabel6)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(t2Txt))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(updateBtn)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(clearBtn))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(createBtn))
+                        .addComponent(clearBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(createBtn)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(mwIdTxt))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabel10)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(t10Txt))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabel9)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(t8Txt))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(t6Txt))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(t4Txt))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(t2Txt, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel12)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(tIdTxt))))
+                        .addGap(113, 113, 113))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,11 +226,12 @@ public class MarkedWorkGUI extends javax.swing.JFrame {
                     .addComponent(t1Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(t2Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
-                    .addComponent(t3Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(t4Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(t3Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(t4Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -189,11 +239,12 @@ public class MarkedWorkGUI extends javax.swing.JFrame {
                     .addComponent(t5Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(t6Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
-                    .addComponent(t7Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(t8Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(t7Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(t8Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -209,8 +260,10 @@ public class MarkedWorkGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(cIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                    .addComponent(cIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14)
+                    .addComponent(mwIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(createBtn)
                     .addComponent(clearBtn)
@@ -220,6 +273,146 @@ public class MarkedWorkGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void mwIdTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mwIdTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mwIdTxtActionPerformed
+
+    private void okBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okBtnActionPerformed
+        // TODO add your handling code here:
+        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("StudentRecordManagementSystemPU");
+
+        EntityManager entitymanager = emfactory.createEntityManager();
+        entitymanager.getTransaction().begin();
+
+        Markedworks mw = entitymanager.find(Markedworks.class, mwIdTxt.getText().trim());
+
+        if (!t1Txt.getText().equals("")) {
+            mw.setTask1(t1Txt.getText().trim());
+        }
+        if (!t2Txt.getText().equals("")) {
+            mw.setTask2(t2Txt.getText().trim());
+        }
+        if (!t3Txt.getText().equals("")) {
+            mw.setTask3(t3Txt.getText().trim());
+        }
+        if (!t4Txt.getText().equals("")) {
+            mw.setTask4(t4Txt.getText().trim());
+        }
+        if (!t5Txt.getText().equals("")) {
+            mw.setTask5(t5Txt.getText().trim());
+        }
+        if (!t6Txt.getText().equals("")) {
+            mw.setTask6(t6Txt.getText().trim());
+        }
+        if (!t7Txt.getText().equals("")) {
+            mw.setTask7(t7Txt.getText().trim());
+        }
+        if (!t8Txt.getText().equals("")) {
+            mw.setTask8(t8Txt.getText().trim());
+        }
+        if (!t9Txt.getText().equals("")) {
+            mw.setTask9(t9Txt.getText().trim());
+        }
+        if (!t10Txt.getText().equals("")) {
+            mw.setTask10(t10Txt.getText().trim());
+        }
+        if (!sIdTxt.getText().equals("")) {
+            Students s = entitymanager.find(Students.class, sIdTxt.getText().trim());
+            mw.setStudentId(s);
+        }
+
+        if (!cIdTxt.getText().equals("")) {
+            Classes c = entitymanager.find(Classes.class, cIdTxt.getText().trim());
+            mw.setClassId(c);
+        }
+
+        if (!tIdTxt.getText().equals("")) {
+            Teachers t = entitymanager.find(Teachers.class, tIdTxt.getText().trim());
+            mw.setTeacherId(t);
+        }
+
+        entitymanager.persist(mw);
+        entitymanager.getTransaction().commit();
+
+        entitymanager.close();
+        emfactory.close();
+    }//GEN-LAST:event_okBtnActionPerformed
+
+    private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
+        // TODO add your handling code here:
+        clearBtn.setVisible(true);
+        okBtn.setVisible(true);
+        mwIdTxt.setVisible(true);
+        jLabel14.setVisible(true);
+    }//GEN-LAST:event_updateBtnActionPerformed
+
+    private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
+        // TODO add your handling code here:
+        t1Txt.setText("");
+        t2Txt.setText("");
+        t3Txt.setText("");
+        t4Txt.setText("");
+        t5Txt.setText("");
+        t6Txt.setText("");
+        t7Txt.setText("");
+        t8Txt.setText("");
+        t9Txt.setText("");
+        t10Txt.setText("");
+        sIdTxt.setText("");
+        tIdTxt.setText("");
+        cIdTxt.setText("");
+        mwIdTxt.setText("");
+        mwIdTxt.setVisible(false);
+        jLabel14.setVisible(false);
+        clearBtn.setVisible(false);
+
+    }//GEN-LAST:event_clearBtnActionPerformed
+
+    private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
+        // TODO add your handling code here:
+        clearBtn.setVisible(true);
+        updateBtn.setVisible(true);
+        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("StudentRecordManagementSystemPU");
+
+        EntityManager entitymanager = emfactory.createEntityManager();
+        entitymanager.getTransaction().begin();
+
+        Markedworks mw = new Markedworks();
+        mw.setMarkedWorkId();
+
+        if (!sIdTxt.getText().equals("")) {
+            Students s = entitymanager.find(Students.class, sIdTxt.getText().trim());
+            mw.setStudentId(s);
+        }
+
+        if (!cIdTxt.getText().equals("")) {
+            Classes c = entitymanager.find(Classes.class, cIdTxt.getText().trim());
+            mw.setClassId(c);
+        }
+
+        if (!tIdTxt.getText().equals("")) {
+            Teachers t = entitymanager.find(Teachers.class, tIdTxt.getText().trim());
+            mw.setTeacherId(t);
+        }
+
+        mw.setTask1(t1Txt.getText().trim());
+        mw.setTask2(t2Txt.getText().trim());
+        mw.setTask3(t3Txt.getText().trim());
+        mw.setTask4(t4Txt.getText().trim());
+        mw.setTask5(t5Txt.getText().trim());
+        mw.setTask6(t6Txt.getText().trim());
+        mw.setTask7(t7Txt.getText().trim());
+        mw.setTask8(t8Txt.getText().trim());
+        mw.setTask9(t9Txt.getText().trim());
+        mw.setTask10(t10Txt.getText().trim());
+
+        entitymanager.persist(mw);
+        entitymanager.getTransaction().commit();
+
+        entitymanager.close();
+        emfactory.close();
+    }//GEN-LAST:event_createBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,6 +458,7 @@ public class MarkedWorkGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -273,6 +467,7 @@ public class MarkedWorkGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField mwIdTxt;
     private javax.swing.JButton okBtn;
     private javax.swing.JTextField sIdTxt;
     private javax.swing.JTextField t10Txt;
