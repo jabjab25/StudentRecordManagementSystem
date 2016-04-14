@@ -9,6 +9,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import ORM.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -124,7 +126,11 @@ public class UserGUI extends javax.swing.JFrame {
         
         Teachers t1 = entitymanager.find(Teachers.class, tIdTxt.getText().trim());
         u1.setTeachers(t1);
-        u1.setPassword(pwdTxt.getText().trim());
+        try {
+            u1.setPassword(pwdTxt.getText().trim());
+        } catch (Exception ex) {
+            Logger.getLogger(UserGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
         u1.setUsername();
         u1.setTeacherId();
         entitymanager.persist(u1);
@@ -150,7 +156,11 @@ public class UserGUI extends javax.swing.JFrame {
         entitymanager.getTransaction().begin();
         
         Users u1 = entitymanager.find(Users.class, tIdTxt.getText().trim());
-        u1.setPassword(pwdTxt.getText());
+        try {
+            u1.setPassword(pwdTxt.getText());
+        } catch (Exception ex) {
+            Logger.getLogger(UserGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
         entitymanager.persist(u1);
         entitymanager.getTransaction().commit();
 

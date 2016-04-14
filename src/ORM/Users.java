@@ -18,7 +18,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.XmlRootElement;
-
+import Encryption.Encrypt;
 /**
  *
  * @author jermaine
@@ -87,8 +87,9 @@ public class Users implements Serializable {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword(String password) throws Exception {
+        String encP = Encryption.Encrypt.encrypt(password);
+        this.password = encP;
     }
 
     public Teachers getTeachers() {
