@@ -5,6 +5,14 @@
  */
 package GUI;
 
+import ORM.Classes;
+import ORM.Markedworks;
+import ORM.Students;
+import ORM.Teachers;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 /**
  *
  * @author Jermaine
@@ -147,6 +155,23 @@ public class TeacherGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         updateBtn.setVisible(true);
         ClearBtn.setVisible(true);
+        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("StudentRecordManagementSystemPU");
+
+        EntityManager entitymanager = emfactory.createEntityManager();
+        entitymanager.getTransaction().begin();
+        Teachers t1 = new Teachers();
+        t1.setTeacherId();
+        t1.setFirstName(fnTxt.getText().trim());
+        t1.setLastName(lnTxt.getText().trim());
+        t1.setEmailAddress(emailTxt.getText().trim());
+
+
+   
+        entitymanager.persist(t1);
+        entitymanager.getTransaction().commit();
+
+        entitymanager.close();
+        emfactory.close();
     }//GEN-LAST:event_createBtnActionPerformed
 
     private void ClearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearBtnActionPerformed
