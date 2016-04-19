@@ -77,6 +77,11 @@ public class TeacherGUI extends javax.swing.JFrame {
         });
 
         okBtn.setText("OK");
+        okBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okBtnActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("First Name");
 
@@ -191,6 +196,32 @@ public class TeacherGUI extends javax.swing.JFrame {
         jLabel4.setVisible(true);
         okBtn.setVisible(true);
     }//GEN-LAST:event_updateBtnActionPerformed
+
+    private void okBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okBtnActionPerformed
+EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("StudentRecordManagementSystemPU");
+
+        EntityManager entitymanager = emfactory.createEntityManager();
+        entitymanager.getTransaction().begin();
+
+        Teachers s1 = entitymanager.find(Teachers.class, tIdTxt.getText().trim());
+
+        if (!fnTxt.getText().equals("")) {
+            s1.setFirstName(fnTxt.getText().trim());
+        }
+        if (!lnTxt.getText().equals("")) {
+            s1.setLastName(lnTxt.getText().trim());
+        }
+        if (!emailTxt.getText().equals("")) {
+            s1.setEmailAddress(emailTxt.getText().trim());
+        }
+        
+        
+        entitymanager.persist(s1);
+        entitymanager.getTransaction().commit();
+
+        entitymanager.close();
+        emfactory.close();        // TODO add your handling code here:
+    }//GEN-LAST:event_okBtnActionPerformed
 
     /**
      * @param args the command line arguments
