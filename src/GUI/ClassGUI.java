@@ -5,6 +5,13 @@
  */
 package GUI;
 
+import ORM.Classes;
+import ORM.Markedworks;
+import ORM.Students;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 /**
  *
  * @author Jermaine
@@ -58,6 +65,11 @@ public class ClassGUI extends javax.swing.JFrame {
         jLabel5.setText("Student ID");
 
         createBtn.setText("Create Class");
+        createBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createBtnActionPerformed(evt);
+            }
+        });
 
         clearBtn.setText("Clear");
         clearBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -74,6 +86,11 @@ public class ClassGUI extends javax.swing.JFrame {
         });
 
         okBtn.setText("OK");
+        okBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okBtnActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Class ID");
 
@@ -155,7 +172,7 @@ public class ClassGUI extends javax.swing.JFrame {
         jLabel3.setVisible(false);
         okBtn.setVisible(false);
         clearBtn.setVisible(false);
-        
+
     }//GEN-LAST:event_clearBtnActionPerformed
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
@@ -164,8 +181,52 @@ public class ClassGUI extends javax.swing.JFrame {
         classIdTxt.setVisible(true);
         jLabel3.setVisible(true);
         clearBtn.setVisible(false);
-        
+
     }//GEN-LAST:event_updateBtnActionPerformed
+
+    private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
+
+        clearBtn.setVisible(true);
+        updateBtn.setVisible(true);
+        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("StudentRecordManagementSystemPU");
+
+        EntityManager entitymanager = emfactory.createEntityManager();
+        entitymanager.getTransaction().begin();
+        Classes c1 = new Classes();
+        c1.setClassId();
+        c1.setClassName(this.classNTxt.getText().trim());
+        c1.setKeyStage(this.keyStageTxt.getText().trim());
+
+        entitymanager.persist(c1);
+        entitymanager.getTransaction().commit();
+
+        entitymanager.close();
+        emfactory.close();// TODO add your handling code here:
+    }//GEN-LAST:event_createBtnActionPerformed
+
+    private void okBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okBtnActionPerformed
+               EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("StudentRecordManagementSystemPU");
+
+        EntityManager entitymanager = emfactory.createEntityManager();
+        entitymanager.getTransaction().begin();
+        Classes c1 = entitymanager.find(Classes.class,this.classIdTxt.getText().trim());
+         if (!classNTxt.getText().equals("")) {
+            c1.setClassName(this.classNTxt.getText().trim());
+        }
+        if (!keyStageTxt.getText().equals("")) {
+            c1.setKeyStage(this.keyStageTxt.getText().trim());
+        }
+  
+        
+        
+
+        entitymanager.persist(c1);
+        entitymanager.getTransaction().commit();
+
+        entitymanager.close();
+        emfactory.close();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_okBtnActionPerformed
 
     /**
      * @param args the command line arguments

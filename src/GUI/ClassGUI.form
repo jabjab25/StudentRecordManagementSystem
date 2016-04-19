@@ -135,6 +135,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Create Class"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="clearBtn">
       <Properties>
@@ -156,6 +159,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="OK"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="okBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="classIdTxt">
     </Component>
