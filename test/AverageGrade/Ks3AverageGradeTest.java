@@ -88,6 +88,34 @@ public class Ks3AverageGradeTest {
         // TODO review the generated test code and remove the default call to fail.
        // fail("The test case is a prototype.");
     }
+    @Test 
+    public void testValueAdded()
+    {
+        System.out.println("calcValueAdded");
+        Markedworks ints = new Markedworks();
+        Classes i1 = new Classes();
+        Students s1 = new Students();
+        i1.setClassId();
+        i1.setKeyStage("ks3");
+        ints.setClassId(i1);
+        s1.setStudentId();
+        s1.setClassId(i1);
+        s1.setTargetGrade("5c");
+        ints.setTask1("5a");
+        ints.setTask2("5c");
+        ints.setTask3("4a");
+        ints.setTask4("7a");
+        ints.setTask5("6a");
+        Ks3AverageGrade instance = new Ks3AverageGrade();
+        instance.setMarkedWork(ints);
+        instance.setStudnent(s1);
+        instance.calcValueAdded();
+        double expResult = 0.88;
+        System.out.println("expected result should be " + expResult);
+        double result = instance.calcValueAdded();
+        System.out.println("result is "+ result);
+        
+    }
     
     
 }
