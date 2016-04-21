@@ -96,7 +96,7 @@ public class UsersTest {
      * Test of getPassword method, of class Users.
      */
     @Test
-    public void testGetPassword() {
+    public void testGetPassword() throws Exception {
         System.out.println("getPassword");
         Users instance = new Users();
         String expResult = "test";

@@ -5,6 +5,7 @@
  */
 package AverageGrade;
 
+import ORM.Classes;
 import ORM.Markedworks;
 import ORM.Students;
 import org.junit.After;
@@ -42,28 +43,28 @@ public class Ks4AverageGradeTest {
     /**
      * Test of setStudnent method, of class Ks4AverageGrade.
      */
-    @Test
-    public void testSetStudnent() {
-        System.out.println("setStudnent");
-        Students s1 = null;
-        Ks4AverageGrade instance = new Ks4AverageGrade();
-        instance.setStudnent(s1);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testSetStudnent() {
+//        System.out.println("setStudnent");
+//        Students s1 = null;
+//        Ks4AverageGrade instance = new Ks4AverageGrade();
+//        instance.setStudnent(s1);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of setMarkedWork method, of class Ks4AverageGrade.
      */
-    @Test
-    public void testSetMarkedWork() {
-        System.out.println("setMarkedWork");
-        Markedworks m = null;
-        Ks4AverageGrade instance = new Ks4AverageGrade();
-        instance.setMarkedWork(m);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testSetMarkedWork() {
+//        System.out.println("setMarkedWork");
+//        Markedworks m = null;
+//        Ks4AverageGrade instance = new Ks4AverageGrade();
+//        instance.setMarkedWork(m);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of calcAverageGrade method, of class Ks4AverageGrade.
@@ -71,10 +72,21 @@ public class Ks4AverageGradeTest {
     @Test
     public void testCalcAverageGrade() {
         System.out.println("calcAverageGrade");
+        Markedworks ints = new Markedworks();
+        Classes i1 = new Classes();
+        i1.setClassId();
+        i1.setKeyStage("ks4");
+        ints.setClassId(i1);
+        ints.setTask1("A");
+        ints.setTask2("B");
+        ints.setTask3("C");
+        ints.setTask4("D");
+        ints.setTask5("E");
         Ks4AverageGrade instance = new Ks4AverageGrade();
+        instance.setMarkedWork(ints);
         instance.calcAverageGrade();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     /**
@@ -83,12 +95,27 @@ public class Ks4AverageGradeTest {
     @Test
     public void testCalcValueAdded() {
         System.out.println("calcValueAdded");
+        Markedworks ints = new Markedworks();
+        Classes i1 = new Classes();
+        Students s1 = new Students();
+        i1.setClassId();
+        i1.setKeyStage("ks4");
+        s1.setClassId(i1);
+        s1.setTargetGrade("B");
+        ints.setClassId(i1);
+        ints.setTask1("A");
+        ints.setTask2("B");
+        ints.setTask3("C");
+        ints.setTask4("D");
+        ints.setTask5("E");
         Ks4AverageGrade instance = new Ks4AverageGrade();
-        double expResult = 0.0;
+        instance.setMarkedWork(ints);
+        instance.setStudnent(s1);
+        double expResult = -1.0;
         double result = instance.calcValueAdded();
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result,0.0);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }
